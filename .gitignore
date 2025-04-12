@@ -1,0 +1,54 @@
+# 🛠️ Archivos de compilación y temporales
+/target/
+*.class
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# 📦 Archivos de paquetes
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# 💥 Registros de errores de la JVM
+hs_err_pid*
+
+# 🧰 Configuraciones específicas de IDEs
+# VS Code
+.vscode/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.classpath
+.project
+.settings/
+.apt_generated/
+.factorypath
+.springBeans
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# 🧪 Herramientas de prueba
+test-output/
+surefire-reports/
+
+# 🧵 Otros archivos y carpetas
+.DS_Store
+Thumbs.db
