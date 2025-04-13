@@ -5,14 +5,23 @@ function fn() {
     env = 'dev';
   }
   var config = {
-    env: env,
-    myVarName: 'someValue'
+    apiUrl: 'http://localhost:8080/',
+    auth: {},// Objeto para credenciales
+    headers: {// Headers globales
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
   }
   if (env == 'dev') {
-    // customize
-    // e.g. config.foo = 'bar';
-  } else if (env == 'e2e') {
-    // customize
+    config.auth = {
+      email: 'rlfernando7@gmail.dev',
+      password: '12345'
+    };
+  } else if (env == 'qa') {
+    config.auth = {
+      email: 'rlfernando7@gmail.com',
+      password: '12345'
+    };
   }
   return config;
 }
