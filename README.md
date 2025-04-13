@@ -37,3 +37,36 @@ mvn archetype:generate \
   -DarchetypeVersion=1.5.1 \
   -DgroupId=com.mycompany \
   -DartifactId=Aniverse-karate
+```
+
+
+## 📦 Instalación
+
+  git clone https://github.com/tu-usuario/Aniverse-karate.git
+  cd Aniverse-karate
+
+
+### Compila el proyecto:
+
+mvn clean install
+
+✅ Este paso descargará todas las dependencias necesarias y dejará el proyecto listo para ejecutar.
+
+## ▶️ Ejecutar todas las pruebas
+
+mvn test
+
+🧪 Esto ejecutará todos los escenarios definidos en los archivos .feature.
+
+## 🏷️ Ejecutar escenarios por Tags especificos
+
+mvn test -Dkarate.options="--tags @debug"
+
+## ❌ Omitir escenarios con un tag específico
+
+mvn test -Dkarate.options="--tags ~@skipme"
+
+
+## 🚀Puedes combinar múltiples tags:
+
+mvn test -Dkarate.options="--tags @login,@register"
