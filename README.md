@@ -1,19 +1,39 @@
-🥋 Inicialización del proyecto de testing con Karate - Aniverse 🧪
+# 🥋 Aniverse Karate - API Testing Suite
 
-📌 Se configura el entorno base para el proyecto de pruebas automatizadas de APIs utilizando Karate.
+Bienvenido al dojo de testing para **Aniverse**, un sistema donde los usuarios pueden registrarse, iniciar sesión y gestionar su colección de animes favoritos.  
+Este repositorio contiene las pruebas automatizadas de API usando el framework **Karate**.
 
-✔️ Pasos realizados:
+---
 
-- Instalación de JDK 23 y Maven
-- Verificación de entorno (`java -version`, `mvn -v`)
-- Instalación de extensiones para VS Code (Karate Runner, Java Pack, Cucumber)
-- Creación del proyecto base con comando Maven oficial
-- Inicialización de Git y creación de `.gitignore`
-- Inclusión de archivo `README.md` con detalles del setup inicial
+## 🚀 ¿Qué contiene este proyecto?
 
-📁 Estructura creada:
-- `src/test/java/karate-config.js`
-- `src/test/java/examples/*`
-- Archivos base para pruebas y configuración de Maven
+- 🔨 Proyecto generado con **Maven** usando el archetype oficial de Karate
+- 🧪 Estructura de pruebas listas para expandir
+- 🗂️ Organización basada en **MVC y buenas prácticas**
+- 🧠 Pruebas orientadas a escenarios reales con **Cucumber-like syntax**
 
-🔗 Este proyecto será la base para pruebas de APIs del sistema Aniverse.
+---
+
+## ⚙️ Setup del entorno
+
+### Requisitos previos
+
+- Java 17 o superior (Se utilizó JDK 23)
+- Apache Maven (Instalado desde [maven.apache.org](https://maven.apache.org/download.cgi))
+- Git (opcional para control de versiones)
+- Visual Studio Code con las extensiones:
+  - 🌿 Java Extension Pack
+  - 🥒 Cucumber (Gherkin) Syntax
+  - 🥋 Karate Runner
+
+---
+
+## 🏗️ Crear el proyecto
+
+```bash
+mvn archetype:generate \
+  -DarchetypeGroupId=io.karatelabs \
+  -DarchetypeArtifactId=karate-archetype \
+  -DarchetypeVersion=1.5.1 \
+  -DgroupId=com.mycompany \
+  -DartifactId=Aniverse-karate
