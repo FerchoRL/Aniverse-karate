@@ -60,16 +60,16 @@ mvn test
 
 ## 🏷️ Ejecutar escenarios por Tags especificos
 
-mvn test -Dkarate.options="--tags @debug"
+mvn test "-Dkarate.options=--tags @debug"
 
 ## ❌ Omitir escenarios con un tag específico
 
-mvn test -Dkarate.options="--tags ~@skipme"
+mvn test "-Dkarate.options="--tags ~@skipme"
 
 
 ## 🚀Puedes combinar múltiples tags:
 
-mvn test -Dkarate.options="--tags @login,@register"
+mvn test "-Dkarate.options="--tags @login,@register"
 
 
 ## 🧪 Convención para nombrar archivos .feature
