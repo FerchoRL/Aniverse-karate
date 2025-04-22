@@ -60,13 +60,40 @@ mvn test
 
 ## 🏷️ Ejecutar escenarios por Tags especificos
 
-mvn test -Dkarate.options="--tags @debug"
+mvn test "-Dkarate.options=--tags @debug"
 
 ## ❌ Omitir escenarios con un tag específico
 
-mvn test -Dkarate.options="--tags ~@skipme"
+mvn test "-Dkarate.options="--tags ~@skipme"
 
 
 ## 🚀Puedes combinar múltiples tags:
 
-mvn test -Dkarate.options="--tags @login,@register"
+mvn test "-Dkarate.options="--tags @login,@register"
+
+
+## 🧪 Convención para nombrar archivos .feature
+
+Para mantener una buena organización y trazabilidad con herramientas de gestión de pruebas como TestRail, Zephyr o similares, sigue la siguiente convención para nombrar tus archivos de pruebas:
+
+### 📁 Estructura recomendada: 
+
+`TC<ID>-<NombreDescriptivo>.feature`
+
+
+- `TC<ID>`: El ID del test case. Puede estar vinculado a tu herramienta de gestión.
+- `<NombreDescriptivo>`: Breve descripción del propósito del test.
+
+### ✅ Ejemplos:
+
+- `TC101-RegisterUserSuccess.feature`
+- `TC102-RegisterUserFailure.feature`
+- `TC201-LoginUserSuccess.feature`
+- `TC202-LoginUserInvalidPassword.feature`
+
+### 🏷️ Tips adicionales:
+- Usa `@tags` para marcar tus tests (`@smoke`, `@regression`, `@e2e`, etc).
+- Si usas una herramienta de gestión de pruebas, asegúrate de enlazar el ID (`TC101`, etc.) con el caso creado ahí.
+
+---
+
