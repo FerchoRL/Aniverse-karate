@@ -12,6 +12,67 @@ Este repositorio contiene las pruebas automatizadas de API usando el framework *
 - 🗂️ Organización basada en **MVC y buenas prácticas**
 - 🧠 Pruebas orientadas a escenarios reales con **Cucumber-like syntax**
 
+## 🧪 /feature
+Qué contiene:
+
+- Todos los archivos .feature que definen escenarios de prueba completos.
+
+Ejemplos:
+
+- RegisterUser.feature
+
+- Login.feature
+
+- AnimeCollection.feature
+
+Notas:
+
+- Aquí están los tests principales que ejecutamos y reportamos.
+
+
+## 🛠 /helpers
+Qué contiene:
+
+- Código de apoyo en Java o JavaScript que no son escenarios de prueba, sino utilerías.
+
+Ejemplos:
+
+- DataGenerator.java (genera datos dinámicos).
+
+- filter-property.js (filtra propiedades en respuestas).
+
+Notas:
+
+- Ayudan a mantener los features limpios y evitan duplicación de lógica.
+
+## ⚙️ /operations
+Qué contiene:
+
+- Features o scripts que realizan operaciones auxiliares necesarias para otros tests, como autenticaciones o configuraciones previas.
+
+Ejemplos:
+
+- AuthLoginHelper.feature (genera y gestiona el x-token de acceso).
+
+Notas:
+
+- Son features operativos, no escenarios principales.
+
+## 📊 /data
+Qué contiene:
+
+- Archivos de datos de entrada como payloads, listas o configuraciones externas.
+
+Ejemplos:
+
+- user-registration-payload.json
+
+- animes-list.csv
+
+Notas:
+
+- Mantener los datos aquí facilita la reutilización y evita hardcodear información en los escenarios.
+
 ---
 
 ## ⚙️ Setup del entorno

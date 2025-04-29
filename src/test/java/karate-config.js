@@ -23,5 +23,9 @@ function fn() {
       password: '12345'
     };
   }
+  //Puedo definir una variable global en karate config llamando a otro feature. El problema que se ejecuta tambien en test que no lo necesitan. Lo comento
+  // var accessToken = karate.callSingle("classpath:AniverseApp/operations/LoginKarateConfig.feature",config).token
+
+  // karate.configure('headers', {'x-token': accessToken});
   return config;
 }
