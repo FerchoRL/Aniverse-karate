@@ -7,6 +7,10 @@ Background: Establecer URL y variables de entorno global
     Given url apiUrl
     * def dataGenerator = Java.type('AniverseApp.helpers.DataGenerator')
     * def payload = read('classpath:AniverseApp/data/New-user.json')
+    # create and save x-token in headers
+    * def result = callonce read('classpath:AniverseApp/operations/AuthLoginUtility.feature')
+    * def accessToken = result.token
+    * configure headers = { 'x-token': "#(accessToken)" }
 
 @TC101 @TC102 @RegistroUsuarios
 Scenario Outline: '<TC_NAME>': Registro exitoso de usuario con '<ROLE>' y datos validos
@@ -20,14 +24,16 @@ Scenario Outline: '<TC_NAME>': Registro exitoso de usuario con '<ROLE>' y datos 
     Then status 200
     * print response
     # Response validations
-    * def userResponse = response.user
+    * def userCreatedResponse = response.user
+    * def uid = userCreatedResponse.uid
     #SCHEMA VALIDATION Validate each user property
-    And match userResponse ==
+    And match userCreatedResponse ==
     """
     {
         "userName":"#string",
         "email":"#string",
         "role":"#string",
+        "state":"#boolean",
         "userOrigin":"#regex ^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
         "uid":"#string"
     }
@@ -36,12 +42,22 @@ Scenario Outline: '<TC_NAME>': Registro exitoso de usuario con '<ROLE>' y datos 
     #"userOrigin":"#? new Date(_).toISOString() == _"
 
     #Validate response against request
-    And match payload.userName == userResponse.userName
-    And match payload.email == userResponse.email
-    And match payload.role == '<ROLE>'
+    And match payload.userName == userCreatedResponse.userName
+    And match payload.email == userCreatedResponse.email
+    And match userCreatedResponse.role == '<ROLE>'
 
-    #TODO
     #Validate response against get user by ID
+    Given path 'api/users/', uid
+    When method get
+    Then status 200
+    * print response
+    * def getUserResponse = response.user
+    And match userCreatedResponse.userName == getUserResponse.userName
+    And match userCreatedResponse.email == getUserResponse.email
+    And match userCreatedResponse.role == getUserResponse.role
+    And match userCreatedResponse.state == getUserResponse.state
+    And match userCreatedResponse.userOrigin == getUserResponse.userOrigin
+
 
     Examples:
         | TC_NAME   | ROLE      |

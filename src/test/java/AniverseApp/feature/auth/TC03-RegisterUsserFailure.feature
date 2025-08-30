@@ -8,7 +8,7 @@ Given url apiUrl
 #Define functions and data
 * def dataGenerator = Java.type('AniverseApp.helpers.DataGenerator')
 * def payload = read('classpath:AniverseApp/data/New-user.json')
-* def getErrorMessageProperty = eval(read('classpath:AniverseApp/operations/filter-property.js'))
+* def getErrorMessageProperty = eval(read('classpath:AniverseApp/helpers/filter-property.js'))
 
 * set payload.password = ""
 * set payload.role = ""
